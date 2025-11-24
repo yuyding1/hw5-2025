@@ -9,10 +9,12 @@ window.addEventListener("load", function() {
 });
 
 document.querySelector("#play").addEventListener("click", function() {
-	console.log("Video played");
 	video.play();
-	documnet.querySelector("volume").innerHTML=(video.volume*100)+"%";
-});
+	console.log("Video played");
+	const slider = document.querySelector("#slider");
+    video.volume = slider.value / 100;
+    document.querySelector("#volume").innerHTML = slider.value + "%";
+	})
 
 document.querySelector("#pause").addEventListener("click", function() {
 	console.log("Video paused");
@@ -48,7 +50,6 @@ document.querySelector("#mute").addEventListener("click", function() {
 })
 
 document.querySelector("#slider").addEventListener("input", function () {
-    video.volume = this.value/100;
     document.querySelector("#volume").innerHTML = this.value + "%";
 })
 
